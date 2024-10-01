@@ -1,3 +1,13 @@
+import React from "react";
+
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  const showNotification = () => {
+    window.showToast("Content action triggered");
+  };
+
+  return (
+    <section>
+      <button onClick={showNotification}>Show Toast from Content</button>
+    </section>
+  );
 }

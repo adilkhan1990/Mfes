@@ -14,7 +14,11 @@ const applications = constructApplications({
   },
 });
 const layoutEngine = constructLayoutEngine({ routes, applications });
-
+registerApplication({
+  name: "@vm/toast-service",
+  app: () => System.import("@vm/toast-service"),
+  activeWhen: ["/"], // Always load the toast service
+});
 applications.forEach(registerApplication);
 layoutEngine.activate();
 start();
